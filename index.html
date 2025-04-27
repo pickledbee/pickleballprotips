@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Pickleball Training Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        html {
+             scroll-behavior: smooth; /* Enable smooth scrolling natively */
+             scroll-padding-top: 80px; /* Offset for sticky header, adjust as needed */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for active navigation link */
+        .nav-link.active {
+            font-weight: 600;
+            color: #10B981; /* Emerald-500 */
+            border-bottom: 2px solid #10B981;
+        }
+        /* Add padding to sections to prevent content hiding behind sticky header */
+        .content-section {
+            padding-top: 1rem; /* Reduced padding as scroll-padding-top handles offset */
+            margin-bottom: 2rem; /* Add space between sections */
+        }
+        /* Add some spacing below headings */
+        h2, h3, h4 {
+            margin-bottom: 1rem;
+        }
+        h2 { margin-top: 1.5rem; }
+        h3 { margin-top: 1rem; }
+        /* List styling */
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem; /* Indent lists */
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        /* Affiliate button style */
+        .affiliate-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem; /* Equivalent to py-3 px-6 */
+            margin-top: 0.75rem; /* my-3 */
+            margin-bottom: 0.75rem;
+            font-weight: 600; /* font-semibold */
+            color: white;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+        }
+        .affiliate-button:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transform: translateY(-2px);
+        }
+        .affiliate-button i {
+             margin-left: 0.5rem; /* ml-2 */
+        }
+        /* Inline affiliate link style */
+        .inline-affiliate-link {
+            font-weight: 600; /* font-semibold */
+            color: #059669; /* emerald-600 */
+            text-decoration: none;
+        }
+        .inline-affiliate-link:hover {
+            color: #047857; /* emerald-700 */
+            text-decoration: underline;
+        }
+
+        /* Example Gradient Button */
+        .button-gradient-1 {
+             background-image: linear-gradient(to right, #3b82f6, #8b5cf6); /* from-blue-500 to-purple-600 */
+        }
+        .button-gradient-1:hover {
+             background-image: linear-gradient(to right, #2563eb, #7c3aed); /* hover:from-blue-600 hover:to-purple-700 */
+        }
+        /* Example Gradient Button 2 */
+         .button-gradient-2 {
+             background-image: linear-gradient(to right, #10b981, #f59e0b); /* from-emerald-500 to-amber-500 */
+        }
+        .button-gradient-2:hover {
+             background-image: linear-gradient(to right, #059669, #d97706); /* hover:from-emerald-600 hover:to-amber-600 */
+        }
+         /* Example Gradient Button 3 */
+         .button-gradient-3 {
+             background-image: linear-gradient(to right, #ef4444, #f97316); /* from-red-500 to-orange-500 */
+        }
+        .button-gradient-3:hover {
+             background-image: linear-gradient(to right, #dc2626, #ea580c); /* hover:from-red-600 hover:to-orange-600 */
+        }
+        /* Table button style */
+        .table-button {
+            display: inline-block;
+            padding: 0.5rem 1rem; /* py-2 px-4 */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            color: white;
+            border-radius: 0.375rem; /* rounded-md */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+            transition: all 0.2s ease-in-out;
+            text-align: center;
+        }
+         .table-button:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            transform: translateY(-1px);
+        }
+
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header id="main-header" class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap justify-between items-center">
+            <a href="#intro" class="text-2xl font-bold text-emerald-600 hover:text-emerald-700 transition duration-300 nav-link" data-target="intro">
+                <i class="fas fa-table-tennis-paddle-ball mr-2"></i>Train Like a Pro
+            </a>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-emerald-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <div id="navigation-menu" class="hidden md:flex md:items-center md:space-x-1 lg:space-x-2 w-full md:w-auto mt-4 md:mt-0 text-xs sm:text-sm">
+                <a href="#intro" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="intro">Intro</a>
+                <a href="#strength" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="strength">Strength</a>
+                <a href="#footwork" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="footwork">Footwork</a>
+                <a href="#skills" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="skills">Skills</a>
+                <a href="#tactics" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="tactics">Tactics</a>
+                <a href="#gear-guide" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="gear-guide">Gear Guide</a>
+                <a href="#recovery" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="recovery">Recovery</a>
+                <a href="#nutrition" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="nutrition">Nutrition</a>
+                <a href="#mental" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="mental">Mental</a>
+                <a href="#program" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="program">Program</a>
+                <a href="#summary" class="block md:inline-block px-2 py-2 rounded-md font-medium text-gray-600 hover:text-emerald-600 hover:bg-gray-50 nav-link" data-target="summary">Summary</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <section id="intro" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-star mr-2"></i>I. Introduction & Lessons from the Pros</h2>
+            <h3 class="text-2xl font-semibold text-gray-800">1. Why Learn from Elite Players?</h3>
+            <p class="text-gray-700 mb-4">Top-ranked competitors have already fine-tuned the perfect blend of practice intensity, gym work, and rest. Copying their daily schedules lets you skip much of the guesswork—rather than reinventing the wheel, you adopt proven habits that have propelled players like Ben Johns to world #1 status. Johns typically splits his day into two dedicated court sessions (each 2–3 hours) around strength training and recovery blocks. Likewise, Anna Leigh Waters weaves five targeted gym sessions into her week, highlighting how athleticism underpins stamina and consistency on court.</p>
+
+            <div class="my-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 text-center">
+                <p class="text-gray-700 mb-2 font-medium">Want to dive deeper into pro strategies?</p>
+                <a href="https://amzn.to/431DOMy" target="_blank" rel="noopener noreferrer" class="affiliate-button button-gradient-1">
+                    Check out "Winning Pickleball" on Amazon <i class="fab fa-amazon"></i>
+                </a>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800">2. Core Insights from the World’s Best</h3>
+            <h4 class="text-xl font-semibold text-gray-700">High On-Court Volume with Variety</h4>
+            <p class="text-gray-700 mb-4">Every practice alternates between zones (near the net, midcourt, baseline), rotating through soft-touch exchanges, controlled drops, powerful drives, and crisp volleys—ensuring no skill is neglected.</p>
+            <h4 class="text-xl font-semibold text-gray-700">Deliberate Strength & Power Work</h4>
+            <p class="text-gray-700 mb-4">Foundational lifts and bodyweight movements (push, pull, hinge, squat, twist, carry) build a resilient base. Progressing to explosive exercises—box jumps, lateral bounds—fosters the quick-reaction power needed for dynamic rallies.</p>
+            <h4 class="text-xl font-semibold text-gray-700">Recovery as a Priority</h4>
+            <p class="text-gray-700">Intense training demands equally rigorous recovery: dynamic warm-ups get muscles firing, foam rolling and compression gear speed repair, and structured rest weeks and quality sleep prevent burnout.</p>
+        </section>
+
+        <section id="strength" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-dumbbell mr-2"></i>II. Building Athleticism in the Weight Room</h2>
+            <p class="text-gray-700 mb-4">Before mastering strokes, cultivate full-body strength, mobility, and power.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">A. Mastering Movement Fundamentals</h3>
+            <p class="text-gray-700 mb-4">Focus on six pillars—pressing (push), rowing (pull), hip hinge, squat, rotation, and loaded carries. These patterns mirror court movements (lunging, pushing off, coiling for shots), and mastering them creates balanced strength and joint stability.</p>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Press & Pull:</strong> Push-ups, overhead presses, inverted rows, and pull-ups develop chest, shoulder, and back power for drives and defensive blocks.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Hinge & Squat:</strong> Romanian deadlifts, hip thrusts, goblet squats, and split-stance squats train the hips and legs for low, explosive court positioning.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Rotation & Carry:</strong> Pallof presses, Russian twists, and farmer’s carries reinforce core stability against the twists and turns of dynamic play. (Mentioned: Rockstar Academy)</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Adding Explosive Elements</h3>
+            <p class="text-gray-700 mb-4">Once strength is in place, layer in plyometrics to recruit fast-twitch muscle fibers:</p>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Vertical Power:</strong> Box jumps and depth jumps emphasize soft landings and maximal rebound to simulate rapid court pushes. (Mentioned: D1 Training)</li>
+                <li class="text-gray-700"><strong class="font-semibold">Lateral Bursts:</strong> Skater hops and side-to-side bounds build the hip and ankle strength critical for quick sideways sprints.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Upper-Body Explosions:</strong> Medicine-ball slams, rotational chest passes, and overhead throws translate directly into more forceful smashes and drives.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">C. Grip & Forearm Resilience</h3>
+            <p class="text-gray-700">Finish sessions with wrist curls, hand-grip squeezes, and towel pull-ups to sharpen paddle control and prevent wrist fatigue during extended rallies. (Mentioned: Rockstar Academy, Paddletek Pickleball, LLC)</p>
+        </section>
+
+        <section id="footwork" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-shoe-prints mr-2"></i>III. Fast Feet: Agility & Footwork</h2>
+            <p class="text-gray-700 mb-4">Reaching the ball quickly and efficiently is just as important as striking it powerfully.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">A. Ladder Drills for Coordination</h3>
+             <p class="text-gray-700 mb-4">(Mentioned: D1 Training)</p>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Basic to Advanced Patterns:</strong> Progress from straight-ahead single steps to lateral in-outs, cross-overs, and icky shuffles to sharpen neural coordination and foot placement precision.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Reactive Ladder Work:</strong> Have a partner call out movements mid-pattern or flash cards dictating direction to mimic the unpredictability of match play.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Cone & Partner Reaction Exercises</h3>
+            <p class="text-gray-700 mb-4">(Mentioned: Royal Pickleball)</p>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Four-Cone Sprint:</strong> Set cones in a square; sprint to whichever one your coach names, then shuffle back to the center—training split-step recovery and directional agility.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Mirror Drill:</strong> Face off with a partner who shadows your every move. Heighten reaction time and body-awareness by staying in sync.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">C. Perfecting the Split-Step</h3>
+            <p class="text-gray-700">Your split-step should coincide precisely with your opponent’s shot. This small hop readies you to move instantly in any direction. Drill by having a feeder alternate cross-court and down-the-line balls while you focus solely on timing and first-step acceleration.</p>
+        </section>
+
+        <section id="skills" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-bullseye mr-2"></i>IV. Sharpening Basic Strokes</h2>
+            <p class="text-gray-700 mb-4">Deliberate, stepwise practice ensures each fundamental shot becomes second nature.</p>
+
+             <div class="my-4 p-4 bg-gradient-to-r from-emerald-50 to-amber-50 rounded-lg border border-emerald-200 text-center">
+                <p class="text-gray-700 mb-2 font-medium">Ready for a paddle upgrade to match your skills?</p>
+                 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="affiliate-button button-gradient-2">
+                    Explore Advanced Pickleball Paddles on Amazon <i class="fas fa-table-tennis-paddle-ball"></i>
+                </a>
+                </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800">A. Dinks & Kitchen Control</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Targeted Placement:</strong> Place small markers near the kitchen line and hit 50 cross-court dinks followed by 50 down-the-line dinks, concentrating on relaxed wrists and gentle touch.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Pressure Mini-Games:</strong> Play continuous dink rallies to 2 points—if you lose two straight, you sit out for a brief time. This injects competitive tension and forces focus under pressure.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Third-Shot Drops</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Stationary Drops:</strong> From midcourt, drop balls into a 1-foot-high target zone just over the net, repeating 30 times to ingrain the soft-touch technique.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Live Feeds:</strong> Have a partner lob or drive randomly; practice dropping into varied target areas to adapt to real-world unpredictability.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">C. Volley & Transition Sequences</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Wall Volley Rounds:</strong> Stand close to a wall and volley continuously for one minute, aiming for controlled rebounds and soft hands.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Approach-Volley Circuit:</strong> Sprint from the baseline to the net for a volley, then retreat and reset—rotating through this for timed intervals to integrate movement and shot execution.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">D. Overheads & Drives</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Lob-to-Smash Drill:</strong> Coach feeds alternating lobs; work on coiling your hips and loading the back leg before accelerating through the shot for more powerful, accurate smashes.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Baseline Drive Practice:</strong> Hit deep drives to the opponent’s feet, then follow up with a reset lob—reinforcing drive-and-reset routines common in high-level matches.</li>
+            </ul>
+        </section>
+
+        <section id="tactics" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-chess-board mr-2"></i>V. Game-Speed & Tactical Exercises</h2>
+            <p class="text-gray-700 mb-4">Transfer practice skills into match-like environments to develop strategy, decision-making, and endurance.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">A. Competitive Point-Games</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">2-on-1 Coverage Drill:</strong> A single player challenges a team of two—forcing the pair to communicate, cover ground efficiently, and choose high-percentage shots under duress. Rotate roles every few points.</li>
+                <li class="text-gray-700"><strong class="font-semibold">King-of-the-Court:</strong> Winners stay on the court; challengers rotate in. This simulates tournament pressure and keeps intensity high.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Zone-Specific Sessions</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Kitchen-Only Rallies:</strong> Restrict play to the non-volley zone, rallying to a set point total to fine-tune touch and patience near the net.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Baseline-Only Exchanges:</strong> Constrain play to the baseline for extended rallies, reinforcing drive consistency and physical endurance.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">C. Match Study & Analysis</h3>
+            <p class="text-gray-700">Record practice matches and log key metrics—shot distribution, error rates, winning patterns. Compare your ratios (e.g., percentage of drop shots vs. drives) with pro examples to pinpoint strategic adjustments.</p>
+        </section>
+
+        <section id="gear-guide" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-shopping-cart mr-2"></i>VI. The Ultimate Gear Guide for Intermediate Pickleball Players</h2>
+            <p class="text-gray-700 mb-4">Pickleball is one of the fastest-growing sports in the world, and for good reason — it combines the strategy of tennis, the accessibility of ping-pong, and the fast pace of badminton. As you move from beginner to intermediate level, your choice of equipment becomes even more important. Having the right paddle, the right balls, and a solid net system can be the difference between winning that critical match point or watching it slip away.</p>
+            <p class="text-gray-700 mb-4">This guide will cover some of the best intermediate-level pickleball paddles, balls, and nets available today — with curated affiliate links to save you time and research.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🥎 Why Upgrading Your Pickleball Equipment Matters</h3>
+            <p class="text-gray-700 mb-4">When you're just starting out, any basic paddle and ball will do. You're learning footwork, scoring, and basic shots. But once you reach the intermediate stage, your needs change:</p>
+            <ul>
+                <li>You require better paddle control for spin and placement</li>
+                <li>You need balls that offer consistent bounce and durability</li>
+                <li>You need a net that holds strong and withstands multiple matches</li>
+                <li>You begin focusing on precision and tactics rather than just keeping the ball in play</li>
+            </ul>
+            <p class="text-gray-700 mb-4">Investing in better gear enhances your confidence, consistency, and enjoyment of the game.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🏓 Best Pickleball Paddles for Intermediate Players</h3>
+            <h4 class="text-xl font-semibold text-gray-700">1. HEAD Radical Elite Pickleball Paddle</h4>
+            <p class="text-gray-700 mb-2">👉 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="inline-affiliate-link">HEAD Radical Elite Pickleball Paddle</a></p>
+            <p class="text-gray-700 mb-4">The HEAD Radical Elite is an outstanding option for intermediate players looking for a combination of power and control. It features:</p>
+            <ul>
+                <li>Optimized Tubular Construction: This improves shot consistency across the face of the paddle.</li>
+                <li>Fiberglass hitting surface: Offers a soft, responsive feel that aids in controlling dinks and volleys.</li>
+                <li>Comfort Grip System: Reduces vibration and hand fatigue during extended play.</li>
+            </ul>
+            <p class="text-gray-700 mb-4">Players moving from casual games to competitive play will appreciate the Radical Elite’s ability to adapt to both offensive and defensive styles. It's light enough for quick net exchanges but has the pop needed for powerful drives.</p>
+
+            <h4 class="text-xl font-semibold text-gray-700">2. Selkirk Sport Amped Control Pickleball Paddle</h4>
+            <p class="text-gray-700 mb-2">👉 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="inline-affiliate-link">Selkirk Sport Amped Control Pickleball Paddle</a></p>
+            <p class="text-gray-700 mb-4">If precision is your focus, the Selkirk Amped Control paddle is a game-changer:</p>
+            <ul>
+                <li>FiberFlex face: Absorbs impact and allows for maximum spin control.</li>
+                <li>Thick X5 Polypropylene Core: Offers exceptional touch and shock absorption.</li>
+                <li>Longer handle: Perfect for players who use a two-handed backhand.</li>
+            </ul>
+            <p class="text-gray-700 mb-4">This paddle is ideal for players who are learning how to set up points with soft shots, clever spins, and consistent third-shot drops.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🟡 Best Pickleball Balls for Intermediate Play</h3>
+            <h4 class="text-xl font-semibold text-gray-700">1. Franklin Sports X-40 Outdoor Pickleballs (12 Pack)</h4>
+            <p class="text-gray-700 mb-2">👉 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="inline-affiliate-link">Franklin Sports X-40 Outdoor Pickleballs</a></p>
+            <p class="text-gray-700 mb-4">Pickleball balls aren't all the same — and if you’ve played with low-quality balls, you know how frustrating cracked seams and bad bounces can be. The Franklin X-40 is a favorite for intermediate and tournament players because:</p>
+            <ul>
+                <li>Durable polyethylene material resists cracks and dents</li>
+                <li>Precise 40-hole design ensures stable flight even in windy conditions</li>
+                <li>USA Pickleball approved for tournament play</li>
+            </ul>
+            <p class="text-gray-700 mb-4">These balls feel slightly harder than beginner balls, which makes them perfect for developing faster reaction times and more aggressive shot-making.</p>
+
+            <h4 class="text-xl font-semibold text-gray-700">2. Selkirk Pro S1 Pickleball Balls (4 Pack)</h4>
+            <p class="text-gray-700 mb-2">👉 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="inline-affiliate-link">Selkirk Pro S1 Pickleball Balls</a></p>
+            <p class="text-gray-700 mb-4">For players seeking premium quality, Selkirk's Pro S1 balls deliver unmatched consistency:</p>
+            <ul>
+                <li>Seamless construction: Reduces cracking, even under heavy use.</li>
+                <li>High-visibility color: Easier to track during fast-paced rallies.</li>
+                <li>True bounce technology: Ensures the ball responds predictably shot after shot.</li>
+            </ul>
+            <p class="text-gray-700 mb-4">Whether you’re practicing dinks, executing aggressive volleys, or battling it out in windy outdoor courts, these balls provide an excellent, tournament-ready experience.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🥅 Best Pickleball Nets for Consistent Practice</h3>
+            <h4 class="text-xl font-semibold text-gray-700">1. A11N Portable Pickleball Net System</h4>
+            <p class="text-gray-700 mb-2">👉 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="inline-affiliate-link">A11N Portable Pickleball Net System</a></p>
+            <p class="text-gray-700 mb-4">Nothing beats the ability to set up a court wherever you go, and the A11N Portable Net System makes it simple:</p>
+            <ul>
+                <li>Meets USA Pickleball dimensions (22 feet wide, 36 inches high at the sides)</li>
+                <li>Strong powder-coated frame for durability</li>
+                <li>Lightweight carrying bag included for easy transport</li>
+            </ul>
+            <p class="text-gray-700 mb-4">Perfect for intermediate players who want to drill and practice outside of league play, the A11N allows you to turn parks, driveways, or parking lots into your personal court.</p>
+
+            <h4 class="text-xl font-semibold text-gray-700">2. Pickleball 3.0 Tournament Net System</h4>
+            <p class="text-gray-700 mb-2">👉 <a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="inline-affiliate-link">Pickleball 3.0 Tournament Net System</a></p>
+            <p class="text-gray-700 mb-4">When you're ready to practice like a pro, the Pickleball 3.0 Tournament Net steps up your game:</p>
+            <ul>
+                <li>Oval tubing adds extra stability against windy conditions.</li>
+                <li>Easy assembly and takedown make it perfect for tournaments or rotating venues.</li>
+                <li>Center strap ensures proper 34-inch height at the middle of the net.</li>
+            </ul>
+            <p class="text-gray-700 mb-4">If you want your practice sessions to mirror official tournament conditions, this is the net system to choose.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🔥 Bonus Tips for Intermediate Players</h3>
+            <p class="text-gray-700 mb-4">Upgrading your gear is just part of the story. Here are some key tips to truly thrive at the intermediate level:</p>
+            <ol class="list-decimal list-inside space-y-2 mb-4">
+                <li><strong class="font-semibold">Master Your Third Shot Drop:</strong> This is the foundation of strategic pickleball. A good third-shot drop lets you neutralize hard-hitting opponents and get into the kitchen for net dominance.</li>
+                <li><strong class="font-semibold">Prioritize Footwork:</strong> At the intermediate level, games are won by who gets into position faster — not who hits harder. Practice lateral movement and quick resets after each shot.</li>
+                <li><strong class="font-semibold">Practice with Better Balls:</strong> Low-quality balls create inconsistent play and bad habits. Investing in high-end balls like the Franklin X-40 or Selkirk Pro S1 sharpens your reaction time and helps you learn correct spin, bounce, and timing.</li>
+                <li><strong class="font-semibold">Choose the Right Paddle:</strong> Your paddle should fit your playing style. Defensive, soft-handed players will love the Selkirk Amped Control, while aggressive players might prefer the pop and balance of the HEAD Radical Elite.</li>
+                <li><strong class="font-semibold">Play Against Better Opponents:</strong> The fastest way to improve is to consistently challenge yourself. Seek out players slightly better than you and study their footwork, shot selection, and strategies.</li>
+            </ol>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🛒 Quick Recap of the Best Intermediate Pickleball Gear</h3>
+            <div class="overflow-x-auto my-4">
+                <table class="min-w-full divide-y divide-gray-200 border border-gray-300">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Link</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">HEAD Radical Elite Pickleball Paddle</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="table-button button-gradient-2">View on Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Selkirk Amped Control Pickleball Paddle</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="table-button button-gradient-2">View on Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Franklin Sports X-40 Outdoor Pickleballs (12 Pack)</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="table-button button-gradient-2">View on Amazon</a></td>
+                        </tr>
+                         <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Selkirk Pro S1 Pickleball Balls (4 Pack)</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="table-button button-gradient-2">View on Amazon</a></td>
+                        </tr>
+                         <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">A11N Portable Pickleball Net System</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="table-button button-gradient-2">View on Amazon</a></td>
+                        </tr>
+                         <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Pickleball 3.0 Tournament Net System</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="https://amzn.to/3EzyXJj" target="_blank" rel="noopener noreferrer" class="table-button button-gradient-2">View on Amazon</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                 </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800">🎯 Final Thoughts: Gear Up, Level Up</h3>
+            <p class="text-gray-700 mb-4">At the intermediate level, smart investments in your equipment can create massive improvements in your game.</p>
+            <p class="text-gray-700 mb-4">With the right paddle, the best balls, and a reliable net system, you can play longer, hit cleaner shots, and start building the strategic skills you’ll need for advanced competition.</p>
+            <p class="text-gray-700 mb-4">Each product listed here has been carefully selected to meet the needs of players just like you — hungry to level up, and excited about the journey.</p>
+            <p class="text-gray-700 font-semibold text-lg">🎾 Ready to dominate the pickleball court?</p>
+            <p class="text-gray-700">Grab your upgraded gear today and keep building your game toward excellence!</p>
+
+        </section>
+        {/* Renumbered Sections Start Here */}
+        <section id="recovery" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-heartbeat mr-2"></i>VII. Recovery & Longevity</h2> {/* Renumbered */}
+            <p class="text-gray-700 mb-4">Preventing injury and ensuring sustainable progress requires as much attention as training itself.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">A. Dynamic Warm-Up & Activation</h3>
+            <p class="text-gray-700 mb-4">Begin every session with joint mobility drills (arm circles, leg swings), light cardio, and targeted activation exercises (glute bridges, banded shoulder pulls) to prime muscles and joints. (Mentioned: Pickleball Central)</p>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Post-Session Restoration</h3>
+            <p class="text-gray-700 mb-4">(Mentioned: Pickleball Central)</p>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Foam Rolling:</strong> Focus on calves, IT bands, quads, and upper back to relieve tension.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Static Stretching:</strong> Hold hip flexor, shoulder, and wrist stretches for 30 seconds each to maintain flexibility.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Compression & Percussive Devices:</strong> Use compression garments or a massage gun to boost circulation and accelerate muscle recovery.</li>
+            </ul>
+
+             <div class="my-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200 text-center">
+                <p class="text-gray-700 mb-2 font-medium">Need tools to aid your recovery?</p>
+                <a href="https://amzn.to/3YKYaqY" target="_blank" rel="noopener noreferrer" class="affiliate-button button-gradient-3">
+                    Find Recovery Kits on Amazon <i class="fas fa-band-aid"></i>
+                </a>
+                 </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800">C. Sleep & Hydration Essentials</h3>
+            <p class="text-gray-700">Aim for 7–9 hours of quality sleep nightly. Monitor your body weight before and after sessions to calculate fluid loss—then replace about 120% of that weight in fluids (e.g., lose 1 kg → drink 1.2 L) with electrolyte-rich beverages.</p>
+        </section>
+
+        <section id="nutrition" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-utensils mr-2"></i>VIII. Fueling for Peak Performance</h2> {/* Renumbered */}
+            <p class="text-gray-700 mb-4">Your body’s engine runs on smart nutrition and hydration—plan accordingly to maximize training and match-play.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">A. Macronutrient Timing</h3>
+             <p class="text-gray-700 mb-4">(Mentioned: Pickleball Central)</p>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Pre-Session Carbs:</strong> Eat 0.5 g/kg of fast-acting carbohydrates (fruit, energy gels) 30–60 minutes before play to top off glycogen stores.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Post-Session Protein:</strong> Consume 20–30 g of protein (e.g., shake or chocolate milk) within an hour after training to kick-start recovery.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. On-Court Refueling</h3>
+            <p class="text-gray-700">For matches or long practices over 90 minutes, small sips of electrolyte drinks and bite-size carbs (bananas, chews) every 15–20 minutes help maintain energy and focus.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">C. Rehydration Strategies</h3>
+            <p class="text-gray-700">Track pre-/post-session weight, then replace 120% of fluid lost to ensure rapid rehydration and optimal muscle function.</p>
+        </section>
+
+        <section id="mental" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-brain mr-2"></i>IX. Developing a Champion’s Mindset</h2> {/* Renumbered */}
+            <p class="text-gray-700 mb-4">Technical skill and fitness set the stage, but mental toughness often decides the tightest contests.</p>
+
+            <div class="my-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 text-center">
+                <p class="text-gray-700 mb-2 font-medium">Strengthen your mental game with insights from the experts.</p>
+                <a href="https://amzn.to/3EGx5OQ" target="_blank" rel="noopener noreferrer" class="affiliate-button button-gradient-1">
+                    Read "Mastering the Mental Game of Pickleball" on Amazon <i class="fab fa-amazon"></i>
+                </a>
+                 </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800">A. Visualization & Rituals</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Mental Rehearsal:</strong> Spend a few minutes before competing picturing perfect strokes and winning points. This primes neural pathways for smoother execution under pressure.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Pre-Serve Sequence:</strong> Use a brief, consistent ritual (e.g., three ball bounces, deep inhalation) to center your focus before every serve.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Stress-Control Breathing</h3>
+            <p class="text-gray-700">Implement “box breathing” during breaks: inhale for four counts, hold four, exhale four, hold four—lowering heart rate and calming nerves.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">C. Positive Self-Talk</h3>
+            <p class="text-gray-700">Choose short cue words (like “reset” or “calm”) between points to reinforce confidence and prevent negative thoughts from derailing performance.</p>
+        </section>
+
+        <section id="program" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-calendar-alt mr-2"></i>X. Structuring Your Training Year</h2> {/* Renumbered */}
+            <p class="text-gray-700 mb-4">A well-planned annual cycle prevents plateaus and aligns peak fitness with key competitions.</p>
+            <h3 class="text-2xl font-semibold text-gray-800">A. Macro, Meso & Microcycles</h3>
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Macrocycle (12 Months):</strong> Divide into preparation (base building), competition (peak performance), and transition (active recovery) phases.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Mesocycles (4–6 Weeks):</strong> Focus each block on a primary goal—strength, power, skill refinement, or tapering.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Microcycles (Weekly):</strong> Balance on-court sessions, gym workouts, and rest days in each week.</li>
+            </ul>
+            <h3 class="text-2xl font-semibold text-gray-800">B. Sample Weekly Layout</h3>
+            <p class="text-gray-700 mb-4">(Mentioned: Elevate Your Pickleball Game)</p>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 border border-gray-300">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Day</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Court Work</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gym Focus</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Recovery</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm text-gray-700">
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Mon</td><td class="px-6 py-4 whitespace-nowrap">2 h (dinks & drops)</td><td class="px-6 py-4 whitespace-nowrap">Push/pull strength</td><td class="px-6 py-4 whitespace-nowrap">Foam roll & stretch</td></tr>
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Tue</td><td class="px-6 py-4 whitespace-nowrap">2 h (volleys & nets)</td><td class="px-6 py-4 whitespace-nowrap">Plyometric power</td><td class="px-6 py-4 whitespace-nowrap">Compression therapy</td></tr>
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Wed</td><td class="px-6 py-4 whitespace-nowrap">2 h (point simulations)</td><td class="px-6 py-4 whitespace-nowrap">Core & mobility</td><td class="px-6 py-4 whitespace-nowrap">Prioritize sleep</td></tr>
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Thu</td><td class="px-6 py-4 whitespace-nowrap">2 h (overheads & drives)</td><td class="px-6 py-4 whitespace-nowrap">Leg strength</td><td class="px-6 py-4 whitespace-nowrap">Yoga or light activity</td></tr>
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Fri</td><td class="px-6 py-4 whitespace-nowrap">2 h (mixed skills)</td><td class="px-6 py-4 whitespace-nowrap">Medicine-ball work</td><td class="px-6 py-4 whitespace-nowrap">Easy cardio</td></tr>
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Sat</td><td class="px-6 py-4 whitespace-nowrap">3 h (match play)</td><td class="px-6 py-4 whitespace-nowrap">Rest</td><td class="px-6 py-4 whitespace-nowrap">Nutrition focus</td></tr>
+                        <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Sun</td><td class="px-6 py-4 whitespace-nowrap">Rest or light cardio</td><td class="px-6 py-4 whitespace-nowrap">Rest</td><td class="px-6 py-4 whitespace-nowrap">Plan upcoming week</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6">C. Monitoring & Tweaking</h3>
+            <p class="text-gray-700">Keep track of key indicators—drill accuracy percentages, gym progress (vertical jump height), and subjective recovery scores. If progress stalls or fatigue rises, dial back volume or shift emphasis toward technique and restorative work.</p>
+        </section>
+
+        <section id="summary" class="content-section bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-emerald-700"><i class="fas fa-check-circle mr-2"></i>XI. Bringing It All Together</h2> {/* Renumbered */}
+            <ul>
+                <li class="text-gray-700"><strong class="font-semibold">Tailor to Your Starting Point:</strong> Beginners might begin with wall drills and basic ladder movements; intermediate players can layer in live-ball feeds and reactive patterns.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Prioritize Consistency Over Overload:</strong> Regular, focused training five days per week outperforms sporadic, all-out efforts that risk injury and burnout. Aim for incremental improvements—just 1% better each session compounds over time.</li>
+                <li class="text-gray-700"><strong class="font-semibold">Embrace Continuous Feedback:</strong> Record your training, seek coach or peer input, and periodically review pro match footage to refine both technical and tactical aspects of your game.</li>
+            </ul>
+            <p class="text-gray-700 mt-4">By integrating these principles—on-court drills modeled on the pros, gym work targeting both strength and explosiveness, rigorous recovery protocols, smart nutrition, and mental-game strategies—you’ll fast-track your development, stay healthy, and play at your best when it matters. See you at the top!</p>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+             <p class="text-xs italic mb-4">As an Amazon Associate, I earn from qualifying purchases.</p>
+
+            <p>© <span id="current-year"></span> Advanced Pickleball Training Hub. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Disclaimer: Information provided is for educational purposes only. Consult with professionals for specific advice.</p>
+             <div class="mt-4 space-x-4">
+                 <a href="https://facebook.com/YourProfileNameHere" target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
+                 <a href="https://instagram.com/YourProfileNameHere" target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                 <a href="https://youtube.com/@YourChannelNameHere" target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const navigationMenu = document.getElementById('navigation-menu');
+            const header = document.getElementById('main-header');
+            const headerHeight = header ? header.offsetHeight : 60; // Estimate header height if needed
+
+            // --- Function to set active nav link ---
+            function setActiveLink(targetId) {
+                navLinks.forEach(link => {
+                    // Check both href and data-target for robustness
+                    const linkTarget = link.dataset.target || (link.getAttribute('href') ? link.getAttribute('href').substring(1) : null);
+                    if (linkTarget === targetId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // --- Navigation Click Handling ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    const targetId = this.dataset.target || (this.getAttribute('href') ? this.getAttribute('href').substring(1) : null);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        event.preventDefault(); // Prevent default only if target exists
+
+                        // Calculate scroll position, accounting for sticky header
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerHeight - 10; // Extra 10px buffer
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Update active link immediately on click
+                        setActiveLink(targetId);
+
+                        // Close mobile menu after navigation
+                        if (navigationMenu && !navigationMenu.classList.contains('hidden')) {
+                            navigationMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // --- Mobile Menu Toggle ---
+            if (mobileMenuButton && navigationMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    navigationMenu.classList.toggle('hidden');
+                });
+            } else {
+                 console.warn("Mobile menu button or navigation menu element not found.");
+            }
+
+            // --- Intersection Observer for Active Link Highlighting on Scroll ---
+            const observerOptions = {
+                root: null, // relative to document viewport
+                rootMargin: `-${headerHeight}px 0px -50% 0px`, // Adjust top margin for header, bottom margin to trigger earlier/later
+                threshold: 0 // Trigger as soon as the element enters the margin area
+            };
+
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.id;
+                        setActiveLink(targetId);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            contentSections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- Footer Year ---
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                 yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- Initial State ---
+            let initialTargetId = 'intro';
+             if (window.location.hash) {
+                const hashId = window.location.hash.substring(1);
+                const validIds = Array.from(contentSections).map(s => s.id);
+                 if (validIds.includes(hashId)) {
+                    initialTargetId = hashId;
+                }
+            }
+            setActiveLink(initialTargetId);
+
+        });
+    </script>
+
+</body>
+</html>
